@@ -173,9 +173,13 @@ body {
     }
 
     .container img {
-        width: 140px;
+        width: 165px;
     }
 
+    .container::before {
+        font-size: 5rem;
+    }
+    
     .statistics {
         display: flex;
         flex-direction: column;
