@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: sans-serif;
+}
+
+.view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background: #171d24;
+    padding: 2rem 1rem;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+.instruction {
+    font-size: 1rem;
+    color: #ffffff7a;
+    text-align: center;
+}
+
+.statistics {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    gap: 1rem;
+}
+
+.stat-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: .5rem;
+    min-width: 0;
+    background: #c7c5c580;
+    border: .1rem solid #c7c5c5e4;
+    padding: .75rem;
+    border-radius: .25rem;
+}
+
+.stat-wrapper .label {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.stat-wrapper .value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.stat-wrapper.last {
+    background: #75488e7e;
+    border-color: #a270beae;
+}
+
+.stat-wrapper.record {
+    background: #8e486f7e;
+    border-color: #be6f9bc5;
+}
+
+.score {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+}
+
+.container .potato-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.container img {
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    user-select: none;
+}
+
+.container img:hover {
+    cursor: pointer;
+}
+
+.container::before {
+    content: "POTATO";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    white-space: nowrap;
+    font-size: 10rem;
+    color: #ffffff10;
+    animation: pulse 2.5s ease-out infinite;
+    pointer-events: none;
+}
+
+#potato {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    user-select: none;
+    filter: brightness(1.0) drop-shadow(0 0 1.5rem #75694adf);
+}
+
+#potato.jump {
+    animation: potatoJump 0.3s ease-out;
+}
+
+
+@keyframes potatoJump {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    40% {
+        transform: translateY(-.5rem) scale(1.1);
+    }
+
+    70% {
+        transform: translateY(0) scale(0.95);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 1.0;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* medias */
+
+@media (max-width: 480px) {
+    .view {
+        padding: 1rem;
+    }
+
+    .container img {
+        width: 140px;
+    }
+
+    .statistics {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .stat-wrapper {
+        padding: .65rem;
+    }
+}
